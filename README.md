@@ -47,8 +47,10 @@ Voici un aperçu de l'outil en action.
     ```
 4.  **Ouvrez dans votre navigateur :**
     Accédez à `http://127.0.0.1:5000` et commencez à rejouer vos requêtes.
----
 
-    ### Avis de non-responsabilité
+
+
+
+### Avis de non-responsabilité
 
 Cet outil a été conçu à des fins éducatives et de test uniquement. L'utilisation de cet outil pour des activités illégales ou malveillantes est strictement interdite. L'utilisateur est seul responsable de ses actions et doit s'assurer qu'il a l'autorisation nécessaire pour tester les systèmes cibles.
