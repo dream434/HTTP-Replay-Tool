@@ -33,7 +33,7 @@ Voici un aperçu de l'outil en action.
 1.  **Clonez le dépôt :**
     ```sh
     git clone https://github.com/dream434/HTTP-Replay-Tool.git
-    cd HTTP-Replay-Tool.git
+    cd HTTP-Replay-Tool
     ```
 2.  **modifier le fichier requests.json pour les adapter a votre besoin**
 
