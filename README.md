@@ -37,8 +37,8 @@ Voici un aperçu de l'outil en action.
 
 1.  **Clonez le dépôt :**
     ```sh
-    git clone [https://github.com/votre-utilisateur/votre-depot.git](https://github.com/votre-utilisateur/votre-depot.git)
-    cd votre-depot
+    git clone [https://github.com/dream434/HTTP-Replay-Tool.git)
+    cd HTTP-Replay-Tool.git
     ```
 2.  **Installez les dépendances :**
     ```sh
