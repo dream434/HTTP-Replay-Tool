@@ -17,9 +17,9 @@
 Voici un aperçu de l'outil en action.
 
 <div align="center">
-  <img src="replay.JPG" />
-  <img src="image2.JPG" />
-  <img src="image3.JPG" />
+  <img src="images/replay.JPG" />
+  <img src="images/image2.JPG" />
+  <img src="images/image3.JPG" />
 </div>
 
 > 
