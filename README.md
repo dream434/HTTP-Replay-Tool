@@ -35,16 +35,18 @@ Voici un aperçu de l'outil en action.
     git clone https://github.com/dream434/HTTP-Replay-Tool.git
     cd HTTP-Replay-Tool.git
     ```
-2.  **Installez les dépendances :**
+2.  **modifier le fichier requests.json pour les adapter a votre besoin**
+
+3.  **Installez les dépendances :**
     ```sh
     pip install -r requirements.txt
     ```
     (Nécessite `Flask` et `requests`).
-3.  **Lancez l'application :**
+4.  **Lancez l'application :**
     ```sh
     python app.py
     ```
-4.  **Ouvrez dans votre navigateur :**
+5.  **Ouvrez dans votre navigateur :**
     Accédez à `http://127.0.0.1:5000` et commencez à rejouer vos requêtes.
 
 
