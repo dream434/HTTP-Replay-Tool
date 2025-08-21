@@ -1,14 +1,14 @@
 # HTTP Replay Tool
 
-**HTTP Replay Tool** est une interface web légère, construite avec Flask et Python, conçue pour simplifier le débogage et le test des requêtes HTTP. Il permet de rejouer des requêtes enregistrées (importées depuis un fichier JSON) en modifiant facilement les méthodes, les URL, les en-têtes et le corps de la requête, y compris les fichiers.
+**HTTP Replay Tool** est une interface web légère, construite avec **Flask** et **Python**, conçue pour simplifier le débogage et le test des requêtes HTTP. Il permet de rejouer des requêtes enregistrées (importées depuis un fichier JSON) en modifiant facilement les méthodes, les URL, les en-têtes et le corps de la requête, y compris les fichiers.
 
 ### Fonctionnalités clés
 
-* **Rejeu de requêtes :** Exécutez des requêtes HTTP GET et POST avec des options personnalisables.
+* **Rejeu de requêtes :** Exécutez des requêtes HTTP `GET` et `POST` avec des options personnalisables.
 * **Support des en-têtes et du corps :** Modifiez dynamiquement les en-têtes et les données de la requête.
 * **Téléversement de fichiers :** Gère le rejeu des requêtes `multipart/form-data`, y compris la manipulation des fichiers.
-* **Interface intuitive :** Un design simple inspiré de l'outil Burp Suite Repeater, facile à prendre en main pour les développeurs et les testeurs.
-* **Flexibilité du protocole :** Prend en charge les protocoles HTTP/1.1 et HTTP/2.
+* **Interface intuitive :** Un design simple inspiré de l'outil **Burp Suite Repeater**, facile à prendre en main pour les développeurs et les testeurs.
+* **Flexibilité du protocole :** Prend en charge les protocoles **HTTP/1.1** et **HTTP/2**.
 
 ---
 
@@ -16,20 +16,17 @@
 
 Voici un aperçu de l'outil en action.
 
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px;">
-  <div style="flex: 1 1 45%; max-width: 45%;">
-    
-  </div>
-  <div style="flex: 1 1 45%; max-width: 45%;">
-    
-  </div>
-  <div style="flex: 1 1 45%; max-width: 45%;">
-    
-  </div>
-  <div style="flex: 1 1 45%; max-width: 45%;">
-    
-  </div>
+<div align="center">
+  <img src="https://i.imgur.com/your-image-1.png" width="45%" style="margin: 5px;" />
+  <img src="https://i.imgur.com/your-image-2.png" width="45%" style="margin: 5px;" />
+  <img src="https://i.imgur.com/your-image-3.png" width="45%" style="margin: 5px;" />
+  <img src="https://i.imgur.com/your-image-4.png" width="45%" style="margin: 5px;" />
 </div>
+
+> **Note :** Remplacez les URL d'image génériques ci-dessus (`https://i.imgur.com/your-image-x.png`) par les liens de vos propres captures d'écran.
+
+---
+
 
 ---
 
@@ -37,7 +34,7 @@ Voici un aperçu de l'outil en action.
 
 1.  **Clonez le dépôt :**
     ```sh
-    git clone [https://github.com/dream434/HTTP-Replay-Tool.git)
+    git clone [https://github.com/dream434/HTTP-Replay-Tool.git](https://github.com/dream434/HTTP-Replay-Tool.git)
     cd HTTP-Replay-Tool.git
     ```
 2.  **Installez les dépendances :**
@@ -51,3 +48,8 @@ Voici un aperçu de l'outil en action.
     ```
 4.  **Ouvrez dans votre navigateur :**
     Accédez à `http://127.0.0.1:5000` et commencez à rejouer vos requêtes.
+---
+
+    ### Avis de non-responsabilité
+
+Cet outil a été conçu à des fins éducatives et de test uniquement. L'utilisation de cet outil pour des activités illégales ou malveillantes est strictement interdite. L'utilisateur est seul responsable de ses actions et doit s'assurer qu'il a l'autorisation nécessaire pour tester les systèmes cibles.
