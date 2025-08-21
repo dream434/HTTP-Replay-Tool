@@ -17,14 +17,13 @@
 Voici un aperçu de l'outil en action.
 
 <div align="center">
-  <img src="https://i.imgur.com/your-image-1.png" width="45%" style="margin: 5px;" />
-  <img src="https://i.imgur.com/your-image-2.png" width="45%" style="margin: 5px;" />
-  <img src="https://i.imgur.com/your-image-3.png" width="45%" style="margin: 5px;" />
-  <img src="https://i.imgur.com/your-image-4.png" width="45%" style="margin: 5px;" />
+  <img src="image.PNG" />
+  <img src="image1.PNG" />
+  <img src="image2.PNG" />
+  <img src="image3.PNG" />
 </div>
 
-> **Note :** Remplacez les URL d'image génériques ci-dessus (`https://i.imgur.com/your-image-x.png`) par les liens de vos propres captures d'écran.
-
+> 
 ---
 
 
