@@ -1,0 +1,35 @@
+name: Build and Export Docker
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_export:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build Docker image
+        run: |
+          docker build -t flask-app:latest .
+
+      - name: Save Docker image as tar
+        run: |
+          mkdir -p docker
+          docker save flask-app:latest -o docker/flask-app.tar
+
+      - name: Push Docker tar to repo
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          directory: docker
