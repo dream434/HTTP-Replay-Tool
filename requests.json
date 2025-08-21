@@ -1,0 +1,24 @@
+[
+  {
+    "method": "GET",
+    "url": "http://192.168.195.85/burp/flask/UA.php",
+    "headers": {
+      "Host": "192.168.195.85",
+      "User-Agent": "MonAgent/1.0",
+      "Accept": "application/json",
+      "Accept-Language": "fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3",
+      "Accept-Encoding": "gzip, deflate",
+      "Referer": "",
+      "Access-Control-Allow-Origin": "*",
+      "Origin": "https://192.168.195.85",
+      "Sec-Fetch-Dest": "empty",
+      "Sec-Fetch-Mode": "cors",
+      "Sec-Fetch-Site": "same-site",
+      "Priority": "u=4",
+      "Te": "trailers",
+      "Connection": "close"
+    },
+    "content": null,
+    "protocol": "HTTP/1.1"
+  }
+]
