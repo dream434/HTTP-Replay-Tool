@@ -12,8 +12,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          persist-credentials: false
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -27,9 +25,8 @@ jobs:
           mkdir -p docker
           docker save flask-app:latest -o docker/flask-app.tar
 
-      - name: Push Docker tar to repo
-        uses: ad-m/github-push-action@v0.6.0
+      - name: Upload Docker tar as artifact
+        uses: actions/upload-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
-          directory: docker
+          name: docker-image
+          path: docker/flask-app.tar
