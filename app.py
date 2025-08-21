@@ -9,9 +9,7 @@ app.jinja_env.filters['fromjson'] = json.loads
 # --- Fonctions utilitaires ---
 
 def load_requests_from_file(filename='requests.json'):
-    """
-    Charge les requêtes HTTP depuis un fichier JSON.
-    """
+   
     try:
         with open(filename, 'r') as f:
             return json.load(f)
@@ -51,16 +49,14 @@ def process_request_form(form_data, files_data):
     return req_data
 
 def execute_http_request(req_data):
-    """
-    Exécute la requête HTTP en utilisant la bibliothèque requests.
-    """
+   
     method = req_data['method']
     url = req_data['url']
     headers = req_data['headers']
     timeout = 10
     allow_redirects = False
     
-    # Prépare le dictionnaire pour la requête
+  
     request_params = {
         'method': method,
         'url': url,
@@ -103,9 +99,7 @@ def execute_http_request(req_data):
         return f"Une erreur inattendue est survenue: {e}"
 
 def format_response_output(req_data, resp):
-    """
-    Formate la réponse HTTP (statut, en-têtes, corps) pour l'affichage.
-    """
+   
     output = f"Replayed {req_data['method']} {req_data['url']} with {req_data['protocol']} - Status: {resp.status_code}\n"
     output += "--- Response Headers ---\n"
     for key, value in resp.headers.items():
@@ -131,4 +125,5 @@ def index():
     return render_template('index.html', requests=requests_data, output=output_result)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+
+     app.run(host="0.0.0.0", port=5000, debug=True)
