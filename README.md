@@ -17,10 +17,10 @@
 Voici un aperçu de l'outil en action.
 
 <div align="center">
-  <img src="image.PNG" />
-  <img src="image1.PNG" />
-  <img src="image2.PNG" />
-  <img src="image3.PNG" />
+  <img src="replay.JPG" />
+  <img src="image1.JPG" />
+  <img src="image2.JPG" />
+  <img src="image3.JPG" />
 </div>
 
 > 
