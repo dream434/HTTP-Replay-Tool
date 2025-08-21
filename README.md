@@ -55,3 +55,8 @@ Voici un aperçu de l'outil en action.
 ### Avis de non-responsabilité
 
 Cet outil a été conçu à des fins éducatives et de test uniquement. L'utilisation de cet outil pour des activités illégales ou malveillantes est strictement interdite. L'utilisateur est seul responsable de ses actions et doit s'assurer qu'il a l'autorisation nécessaire pour tester les systèmes cibles.
+
+
+### Auteur
+
+* [Votre Nom](https://github.com/dream434)
