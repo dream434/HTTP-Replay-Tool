@@ -1,130 +1,51 @@
-import json
-from flask import Flask, render_template, request
-import requests
-import io
-
-app = Flask(__name__)
-app.jinja_env.filters['fromjson'] = json.loads
-
-
-
-def load_requests_from_file(filename='requests.json'):
-   
-    try:
-        with open(filename, 'r') as f:
-            return json.load(f)
-    except FileNotFoundError:
-        print(f"Erreur: Le fichier '{filename}' n'a pas été trouvé.")
-        return []
-    except json.JSONDecodeError:
-        print(f"Erreur: Le fichier '{filename}' n'est pas un JSON valide.")
-        return []
-
-def process_request_form(form_data, files_data):
-    """
-    Traite les données du formulaire POST et les données des fichiers.
-    """
-    headers_dict = {}
-    header_keys = form_data.getlist('header_key[]')
-    header_values = form_data.getlist('header_value[]')
-
-    for key, value in zip(header_keys, header_values):
-        if key.strip():
-            headers_dict[key.strip()] = value.strip()
-
-    req_data = {
-        'method': form_data.get('method'),
-        'url': form_data.get('url'),
-        'headers': headers_dict,
-        'content': form_data.get('content'),
-        'protocol': form_data.get('protocol', 'HTTP/1.1'),
-    }
-    
-    # Gère le fichier téléversé si présent
-    if 'file_upload' in files_data:
-        file_to_upload = files_data['file_upload']
-        if file_to_upload.filename != '':
-            req_data['file_upload_object'] = file_to_upload
-
-    return req_data
-
-def execute_http_request(req_data):
-   
-    method = req_data['method']
-    url = req_data['url']
-    headers = req_data['headers']
-    timeout = 10
-    allow_redirects = False
-    
-  
-    request_params = {
-        'method': method,
-        'url': url,
-        'headers': headers,
-        'timeout': timeout,
-        'allow_redirects' : allow_redirects
-    }
-
-    files_payload = None
-    data_payload = None
-
-    if 'file_upload_object' in req_data and req_data['file_upload_object']:
-        file_upload_obj = req_data['file_upload_object']
-        
-        # Le nom de champ de fichier attendu par le serveur
-        file_field_name = 'file'
-
-        # Prépare le dictionnaire de fichiers pour requests
-        files_payload = {
-            file_field_name: (file_upload_obj.filename, file_upload_obj.stream, file_upload_obj.mimetype)
-        }
-        
-        request_params['files'] = files_payload
-        
-        # Requests gère automatiquement le Content-Type
-        if 'Content-Type' in request_params['headers']:
-            del request_params['headers']['Content-Type']
-    elif req_data.get('content') and req_data['content'].strip() != '':
-        data_payload = req_data['content']
-        request_params['data'] = data_payload
-
-
-    try:
-        # Exécute la requête avec la bibliothèque requests
-        resp = requests.request(**request_params)
-        return resp
-    except requests.exceptions.RequestException as e:
-        return f"Une erreur est survenue lors de la requête: {e}"
-    except Exception as e:
-        return f"Une erreur inattendue est survenue: {e}"
-
-def format_response_output(req_data, resp):
-   
-    output = f"Replayed {req_data['method']} {req_data['url']} with {req_data['protocol']} - Status: {resp.status_code}\n"
-    output += "--- Response Headers ---\n"
-    for key, value in resp.headers.items():
-        output += f"{key}: {value}\n"
-    output += "--- Response Body ---\n"
-    output += resp.text
-    return output
-
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    requests_data = load_requests_from_file()
-    output_result = None
-
-    if request.method == 'POST':
-        req_to_replay = process_request_form(request.form, request.files)
-        response_or_error = execute_http_request(req_to_replay)
-
-        if isinstance(response_or_error, requests.Response):
-            output_result = format_response_output(req_to_replay, response_or_error)
-        else:
-            output_result = response_or_error
-
-    return render_template('index.html', requests=requests_data, output=output_result)
-
-if __name__ == '__main__':
-
-     app.run(host="0.0.0.0", port=5000, debug=True)
-
+M='POST'
+L=print
+K=None
+J='protocol'
+G='file_upload_object'
+E='content'
+D='headers'
+C='url'
+B='method'
+import json as A
+from flask import Flask,render_template as N,request as F
+import requests as H,io
+I=Flask(__name__)
+I.jinja_env.filters['fromjson']=A.loads
+def O(filename='requests.json'):
+	B=filename
+	try:
+		with open(B,'r')as C:return A.load(C)
+	except FileNotFoundError:L(f"Erreur: Le fichier '{B}' n'a pas été trouvé.");return[]
+	except A.JSONDecodeError:L(f"Erreur: Le fichier '{B}' n'est pas un JSON valide.");return[]
+def P(form_data,files_data):
+	M='file_upload';F=files_data;A=form_data;H={};N=A.getlist('header_key[]');O=A.getlist('header_value[]')
+	for(I,P)in zip(N,O):
+		if I.strip():H[I.strip()]=P.strip()
+	K={B:A.get(B),C:A.get(C),D:H,E:A.get(E),J:A.get(J,'HTTP/1.1')}
+	if M in F:
+		L=F[M]
+		if L.filename!='':K[G]=L
+	return K
+def Q(req_data):
+	N='Content-Type';A=req_data;O=A[B];P=A[C];Q=A[D];R=10;S=False;F={B:O,C:P,D:Q,'timeout':R,'allow_redirects':S};L=K;M=K
+	if G in A and A[G]:
+		I=A[G];T='file';L={T:(I.filename,I.stream,I.mimetype)};F['files']=L
+		if N in F[D]:del F[D][N]
+	elif A.get(E)and A[E].strip()!='':M=A[E];F['data']=M
+	try:U=H.request(**F);return U
+	except H.exceptions.RequestException as J:return f"Une erreur est survenue lors de la requête: {J}"
+	except Exception as J:return f"Une erreur inattendue est survenue: {J}"
+def R(req_data,resp):
+	E=resp;D=req_data;A=f"Replayed {D[B]} {D[C]} with {D[J]} - Status: {E.status_code}\n";A+='--- Response Headers ---\n'
+	for(F,G)in E.headers.items():A+=f"{F}: {G}\n"
+	A+='--- Response Body ---\n';A+=E.text;return A
+@I.route('/',methods=['GET',M])
+def S():
+	D=O();A=K
+	if F.method==M:
+		C=P(F.form,F.files);B=Q(C)
+		if isinstance(B,H.Response):A=R(C,B)
+		else:A=B
+	return N('index.html',requests=D,output=A)
+if __name__=='__main__':I.run(host='0.0.0.0',port=5000,debug=True)
